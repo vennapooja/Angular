@@ -1,0 +1,103 @@
+<section>
+    <header>
+        <div class="logosec">
+            <div class="logo">SmartcityGuide</div>
+            <img src="assets/images/logo.jpg" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+        <h4 style="margin-left: 70%"></h4>
+        <div class="dp">
+
+            <img src="assets/images/Users.png" class="dpicn" alt="dp">
+
+        </div>
+    </header>
+    <div class="main-container" style="background-color: azure;">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a routerLink="/welcome">
+                            
+                            <h5 style="margin-left: 20px">Home</h5>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-option option3">
+                        <a routerLink="/admin/booking/veiwall">
+                            
+                            <h5 style="margin-left: 20px">Show Bookings</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option4">
+                        <a routerLink="/admin/payment/veiwall">
+                            
+                            <h5 style="margin-left: 20px">Show Payments</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option5">
+                        <a routerLink="Hotelslist">
+                            
+                            <h5 style="margin-left: 20px">Show Hotels</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option6">
+                        <a (click)="logout()">
+                            <img src="assets/images/logout.png" class="nav-img" alt="institution">
+                            <h5 style="margin-left: 20px">Logout</h5>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main" style="background-color: antiquewhite;">
+            <div class="title-container">
+                <h3>All Bookings</h3>
+            </div>
+            <div class="box-container">
+                
+                <div class="section-content section-content-p30">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                          <table class='table'>
+                            <thead>
+                                <tr class='table-dark'>
+                                    <th class="center" >BookingID</th>
+                                    <th class="center">User</th>
+                                    <th class="center">BookingDate</th>
+                                   
+                                    <th class="center">Hotel Name</th>
+                                    <th class="center">No. Of Rooms</th>
+                                    <th class="center">Total Price</th>
+                                    <th class="center">Status</th>
+                                    <th></th>
+                                    
+                                </tr>
+                        
+                            </thead>
+                            <tr *ngFor="let temp of booking  | paginate: { itemsPerPage: count, currentPage: p }">
+                                <td class="center">{{temp.bookingId}}</td>
+                                <td class="center">{{temp.user.username}}</td>
+                                <td class="center">{{temp.bookingDate}}</td>
+                                
+                                <td class="center">{{temp.hotel.hotelName}}</td>
+                                <td class="center">{{temp.noOfRooms}}</td>
+                                <td class="center">{{temp.totalPrice}}</td>
+                                <td class="center">{{temp.status}}</td>
+
+                                <td class="center">
+                                    <button type="button" class="btn btn-md btn-danger" (click)="deleteBooking(temp.bookingId)">Delete</button>
+                                </td>
+                            </tr>
+                        </table> 
+                        <div class="text-right" style="padding-top: 20px;">
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>

@@ -1,0 +1,85 @@
+<div class="main-content" style="background-color: antiquewhite;" >
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <div class="row">
+              
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        
+                        <th>Transportation Type</th>
+                        <th>Convenience</th>
+                        <th>Minimum Cost per Ride</th>
+                        <th>Rating</th>
+                        <th>Image</th>
+                    </tr>
+            
+                </thead>
+             <!----  <tr >
+                    <td>Bus</td>
+                    <td>Less Charges with more Availability</td>
+                    <td>20.0</td>
+                    <td> <img src="assets/images/bus.jpg" alt="Bus" ></td>
+                </tr>
+                <tr >
+                    <td>Taxi</td>
+                    <td>It is very Useful for new people who doen't know the destination</td>
+                    <td>100.0</td>
+                    <td> <img src="assets/images/taxi.jpg" alt="taxi" ></td>
+                </tr>
+                <tr >
+                    <td>Metro</td>
+                    <td>Very Convenient and Traffic free journey</td>
+                    <td>50.0</td>
+                    <td> <img src="assets/images/metro.jpg" alt="metro" ></td>
+                </tr>
+                <tr >
+                    <td>Uber</td>
+                    <td>take to the Destination correctly</td>
+                    <td>40.0</td>
+                    <td> <img src="assets/images/uber.jpg" alt="uber" ></td>
+                </tr>
+                <tr >
+                    <td>Auto</td>
+                    <td>more Availability</td>
+                    <td>20.0</td>
+                    <td> <img src="assets/images/auto.jpg" alt="auto" ></td>
+                </tr>
+                <tr >
+                    <td>Train</td>
+                    <td>Very Useful if you wish to Travel another city</td>
+                    <td>50.0</td>
+                    <td> <img src="assets/images/train.jpg" alt="train" ></td>
+                </tr>
+                <tr >
+                    <td>MMTS</td>
+                    <td>Local Trains Easy going but these are less</td>
+                    <td>120.0</td>
+                    <td> <img src="assets/images/mmts.jpg" alt="mmts" ></td>
+                </tr>-->
+                <tr *ngFor="let facilitieslist of transportationfacility | paginate: { itemsPerPage: count, currentPage: p }">
+                    
+                    <td>{{facilitieslist.transportationType}}</td>
+                    <td>{{facilitieslist.convenience}}</td>
+                    <td>{{facilitieslist.minCostPerRide}}</td>
+                    <td>{{facilitieslist.rating}}</td>
+                    <td>
+                        <img [src]="facilitieslist.image" alt="facilities Image" style="max-width: 200px; max-height: 500px;">
+                    </td>
+                </tr>
+           </table>
+           </div>
+           <div class="text-right">
+             <pagination-controls (pageChange)="p = $event"></pagination-controls>
+           </div>
+         
+
+     </div>
+ </div>
+</div>
+                
+           
+        
+   
+    

@@ -1,0 +1,67 @@
+<div class="main-content" style="background-color: antiquewhite;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        <th>placeId</th>
+                        <th>placeName</th>
+                        
+                        <th>timings</th>
+                        
+                        <th>ticketPriceAdults</th>
+                        
+                       
+                        <th>rating</th>
+                        <th>img</th>
+                        <th>Action</th>
+                    </tr>
+
+            
+                </thead><br>
+              <!----  <tr >
+                    <td>1</td>
+                    <td>Charminar</td>
+                    <td>Hyderabad</td>
+                    <td>8am - 10pm</td>
+                    <td>₹50</td>
+                    <td>₹100</td>
+                    <td>Famous Historical place in Hyderabad</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/Charminar.jpg" alt="Charminar" class="img-responsive">
+                    </td>
+                    
+
+
+                </tr>-->
+                <tr *ngFor="let Touristlist of touristplace | paginate: { itemsPerPage: count, currentPage: p }">
+                    <td>{{Touristlist.placeId}}</td>
+                    <td>{{Touristlist.placeName}}</td>
+                    
+                    <td>{{Touristlist.timings}}</td>
+                    
+                    <td>{{Touristlist.ticketPriceAdults}}</td>
+                    
+                    
+                    <td>{{Touristlist.rating}}</td>
+                    <td>{{Touristlist.img}}</td>
+
+                    <button type="button" class="btn btn-md btn-success" (click)="updateTouristplace(Touristlist.placeId)">Update</button>&nbsp;&nbsp;
+                   
+                    <button type="button" class="btn btn-md btn-danger" (click) = "deleteTouristPlace(Touristlist.placeId)">Delete</button>
+                </tr>
+            </table>
+            </div>
+            <!--Including the pagination control.-->
+           <div class="text-right">
+           <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+            <button class="atu-btn-submit btn btn-info"(click)="addtourist()">Add Tourist Place</button><br>
+            
+            <br> <button class="btn btn-info" type="button" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</div>

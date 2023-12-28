@@ -1,0 +1,72 @@
+<div class="page-wrapper">
+             
+    <aside class="menu-sidebar d-none d-lg-block">
+   
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar-list">
+                      <li>
+                        <div class="background">
+                            <a href="#">
+                                <img src="assets/images/logo.jpg" alt="XYZ" class="img-responsive">
+                            </a>
+                        </div>
+                          <a href="user/myprofile">My Profile</a>
+                      </li>
+                        <li>
+                            <a href="user/viewbooking">My Bookings</a>
+                        </li>
+                        <li>
+                            <a href="user/viewpayments">My Payments</a>
+                        </li>
+                       
+                        <li>
+                        <a mat-raised-button color="primary" (click)="logout()">Logout</a>
+                       </li>
+                    </ul>
+                </nav>
+            
+            </aside>
+            
+<div class="main-container" style="
+background-image: url('assets/images/wel.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+height: 90vh;
+overflow: hidden;">
+<div class="container d-flex justify-content-center align-items-center" style="padding-bottom: 10%;" >
+             
+    <div class="row">
+
+
+     <div class="mt-5 text-center">
+      <p><strong><u>User Details</u></strong></p><br>
+       
+       <h4 class="mb-0">{{ user.usersName }}</h4>
+       <span class="text-muted d-block mb-2">{{ user.username }}</span>
+       <span class="text-muted d-block mb-2">{{ user.email }}</span>
+       <span class="text-muted d-block mb-2">{{ user.userPhone }}</span>
+       
+
+
+       
+        <div class="row">
+          <label class="col-sm-2 col-form-label"></label>
+          
+            <button class="btn btn-info" type="submit" style="color: black;"><a (click)="logout()">Logout</a></button>
+          </div>
+        
+         
+
+
+         
+         
+       </div>
+       
+     </div>
+      
+    </div>
+
+  </div>
+</div>

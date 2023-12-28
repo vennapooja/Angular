@@ -1,0 +1,102 @@
+<section>
+    <header>
+        <div class="logosec">
+            <div class="logo">Smartcityguide</div>
+            <img src="assets/images/logo.jpg" class="icn menuicn" id="menuicn" alt="menu-icon">
+        </div>
+        <h4 style="margin-left: 70%"></h4>
+        <div class="dp">
+
+            <img src="assets/images/Users.png" class="dpicn" alt="dp">
+
+        </div>
+    </header>
+    <div class="main-container" style="background-color: azure;">
+        <div class="navcontainer">
+            <nav class="nav">
+                <div class="nav-upper-options">
+                    <div class="nav-option option1">
+                        <a routerLink="/welcome">
+                            
+                            <h5 style="margin-left: 20px">Home</h5>
+                        </a>
+                    </div>
+                    
+                    <div class="nav-option option3">
+                        <a routerLink="/admin/booking/veiwall">
+                            
+                            <h5 style="margin-left: 20px">Show Booking</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option4">
+                        <a routerLink="/admin/payment/veiwall">
+                            
+                            <h5 style="margin-left: 20px">Show Payments</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option5">
+                        <a routerLink="/Hotelslist">
+                           
+                            <h5 style="margin-left: 20px">Show Hotels</h5>
+                        </a>
+                    </div>
+                    <div class="nav-option option6">
+                        <a (click)="logout()">
+                            
+                            <h5 style="margin-left: 20px">Logout</h5>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+        <div class="main" style="background-color: antiquewhite;">
+            <div class="title-container">
+                <h3>All Payments</h3>
+            </div>
+            <div class="box-container">
+                
+                <div class="section-content section-content-p30">
+                    <div class="container-fluid">
+                        
+                        <div class="row">
+                          <table class='table'>
+                            <thead>
+                                <tr class='table-dark'>
+                                    <th class="center" >PaymentId</th>
+                                    <th class="center">Payment Date</th>
+                                    <th class="center">NameOnCard</th>
+                                    <th class="center">Booking Id</th>
+                                    <th class="center">Total Price</th>
+                                    <th class="center">Paid Amount</th>
+                                    <th class="center">User</th>
+                                    <th></th>
+                                   
+                                    
+                                    
+                                </tr>
+                        
+                            </thead>
+                            <tr *ngFor="let temppay of payment | paginate: { itemsPerPage: count, currentPage: p }">
+                                <td class="center">{{temppay.paymentId}}</td>
+                                <td class="center">{{temppay.paidDate}}</td>
+                                <td class="center">{{temppay.cardName}}</td>
+                                <td class="center">{{temppay.bookingId}}</td>
+                                <td class="center">{{temppay.totalPrice}}</td>  
+                                <td class="center">{{temppay.paidAmount}}</td>
+                                <td class="center">{{temppay.user.usersName}}</td>
+                                <td class="center">
+                                    <button type="button" class="btn btn-md btn-danger" (click)="deleteOrder(temppay.paymentId)">Delete</button>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="text-right" style="padding-top: 20px;">
+                            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                            </div>
+                              
+                        </div>    
+                        </div>
+                    </div>
+                </div>
+
+        </div>

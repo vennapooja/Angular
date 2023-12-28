@@ -1,0 +1,28 @@
+
+
+<div class="main-content" style="background-color: bisque;" >
+  <div>
+    <div class="container-fluid">
+        <div class="text-center" style="margin-right: 500px;margin-bottom: 100px">
+          <div >
+                <div class="text" style="height: 600px ; width: 600px;">
+                 <img style="margin-top: 20px; border-radius: 10px;" src="{{ hotel.images }}" alt="{{ hotel.hotelName }}" class="hotel-image">
+                  <h4 class="hotel-hotelName"><strong>{{ hotel.hotelName }}</strong> </h4>
+
+                  <p class="hotel-roomPrice"><strong>{{ hotel.hotelPrice }} ₹</strong> </p>
+
+                <form>
+                  <div class="form-group">
+                    <label for="noOfRooms"><strong>Number of Rooms:</strong></label>
+                    <div class="input-container">
+                      <input type="number" id="noOfRooms" name="noOfRooms" class="form-control" [(ngModel)]="noOfRooms" required min="1">
+                    </div>
+                  </div>
+                <br>  <button type="button" class="btn btn-info" (click)="BookHotel()">Book Now</button>
+                </form>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

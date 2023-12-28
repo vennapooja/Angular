@@ -1,0 +1,130 @@
+<div class="main-content"  style="background-color: bisque;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        
+                        <th>placeName</th>
+                        <th>Location</th>
+                        <th>timings</th>
+                        <th>TicketPriceChildren</th>
+                        <th>ticketPriceAdults</th>
+                        <th>Description</th>
+                       
+                        <th>rating</th>
+                        <th>img</th>
+                    </tr>
+            
+                </thead>
+           <!----   <tr >
+                    <td>1</td>
+                    <td>Charminar</td>
+                    <td>Hyderabad</td>
+                    <td>8am - 10pm</td>
+                    <td>₹50</td>
+                    <td>₹100</td>
+                    <td>Famous Historical place in Hyderabad</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/charminar.jpg" alt="Charminar" class="img-responsive">
+                    </td>
+                    
+
+
+                </tr>
+                <tr >
+                    <td>2</td>
+                    <td>Sanghi</td>
+                    <td>Sanghi nagar</td>
+                    <td>8am - 12pm</td>
+                    <td>₹0</td>
+                    <td>₹0</td>
+                    <td>Famous Majestic Temple built in Chola-Chalukya style of architecture</td>
+                   
+                    <td>5.0</td>
+                    <td> <img src="assets/images/Sanghi.jpg" alt="Sanghitemple" class="img-responsive">
+                    </td>
+                </tr>
+                <tr >
+                    <td>3</td>
+                    <td>Golconda</td>
+                    <td>Ibrahim Bagh</td>
+                    <td>8am - 10pm</td>
+                    <td>₹100</td>
+                    <td>₹150</td>
+                    <td>Famous Historical place in Hyderabad</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/Golconda.jpg" alt="Golconda" class="img-responsive">
+                    </td>
+                </tr>
+                <tr >
+                    <td>4</td>
+                    <td>MountOpera</td>
+                    <td>Hayathnagar,Near pochampally</td>
+                    <td>8am - 9pm</td>
+                    <td>₹1000</td>
+                    <td>₹1500</td>
+                    <td>Holiday spot</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/Mount.jpg" alt="Mount Opera" class="img-responsive">
+                    </td>
+                </tr>
+                <tr >
+                    <td>5</td>
+                    <td>Birla Temple</td>
+                    <td>Hyderabad</td>
+                    <td>8am - 9pm</td>
+                    <td>₹0</td>
+                    <td>₹0</td>
+                    <td>Famous Temple  in Hyderabad</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/Birla.jpg" alt="BirlaMandir" class="img-responsive">
+                    </td>
+                </tr>
+                <tr >
+                    <td>6</td>
+                    <td>Hussain Sagar</td>
+                    <td>Hyderabad</td>
+                    <td>6am - 11pm</td>
+                    <td>₹50</td>
+                    <td>₹100</td>
+                    <td>Heart shaped lake in Hydearbad</td>
+                   
+                    <td>4.8</td>
+                    <td> <img src="assets/images/Sagar.jpg" alt="Charminar" class="img-responsive">
+                    </td>
+                </tr>-->
+                <tr *ngFor="let Touristlist of touristplace | paginate: { itemsPerPage: count, currentPage: p }">
+
+                    
+                    <td>{{Touristlist.placeName}}</td>
+                    <td>{{Touristlist.location}}</td>         
+                    <td>{{Touristlist.timings}}</td> 
+
+                    <td>{{Touristlist.ticketPriceAdults}}</td>
+                    <td>{{Touristlist.ticketPriceChildren}}</td>          
+                    <td>{{Touristlist.description}}</td>
+                    
+                    <td>{{Touristlist.rating}}</td>
+                    <td>
+                        <img [src]="Touristlist.img" alt="Tourist Image" style="max-width: 200px; max-height: 500px;">
+                    </td>
+
+                </tr>
+            </table>
+            </div>
+            <!--Including the pagination control.-->
+           <div class="text-right">
+           <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+           
+
+        </div>
+    </div>
+</div>

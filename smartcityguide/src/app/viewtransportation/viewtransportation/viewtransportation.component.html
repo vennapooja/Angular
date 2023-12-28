@@ -1,0 +1,48 @@
+
+<div class="main-content"style="background-color: pink;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        <th>Transportation Type</th>
+                        <th>Convenience</th>
+                        <th>Minimum Cost per Ride</th>
+                        <th>Image</th>
+                    </tr>
+            
+                </thead>
+               <tr >
+                    <td>Bus</td>
+                    <td>Less Charges with more Availability</td>
+                    <td>20.0</td>
+                    <td> <img src="assets/images/bus.jpg" alt="Bus" ></td>
+                </tr>
+                
+            
+                <tr *ngFor="let facilitieslist of transportationfacility | paginate: { itemsPerPage: count, currentPage: p }">
+                    <td>{{facilitieslist.transportationType}}</td>
+                    <td>{{facilitieslist.convenience}}</td>
+                    <td>{{facilitieslist.minCostPerRide}}</td>
+                    <td>{{facilitieslist.image}}</td>
+                    <button type="button" class="btn btn-md btn-success" (click)="updateTransportation(facilitieslist.Id)">Update</button>&nbsp;&nbsp;
+                   
+                    <button type="button" class="btn btn-md btn-danger" (click) = "deleteTransportation(facilitieslist.Id)">Delete</button>
+                </tr>
+            </table>
+            </div>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            <br><button class="atu-btn-submit btn btn-info"(click)="addTransportation()">Add TransportationFacility</button>
+
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,123 @@
+<!--<div class="main-content" style="background-color: lightcyan;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        <th>HotelName</th>
+                        <th>Price Per Day</th>
+                        <th>Location</th>
+                        <th>Rating</th>
+                        <th>images</th>
+                        <th>Action</th>
+
+                    </tr>
+            
+                </thead>
+              <!----  <tr >
+                    <td>Sitara</td>
+                    <td>2000</td>
+                    <td>Kukatpally</td>
+                    <td>4.2</td>
+                    <td> <img src="assets/images/Sitara.jpg" alt="sitara" height="300" width="300"></td>
+                    <button type="button" class="booking-button" (click)="bookHotel()">Book Hotel</button>
+
+                </tr>
+                <tr >
+                    <td>Taj Banjara</td>
+                    <td>4000</td>
+                    <td>BanjaraHills</td>
+                    <td>4.5</td>
+                    <td> <img src="assets/images/TajKrishna.jpg" alt="Bus" height="300" width="300"></td>
+                    <button type="button" class="booking-button" (click)="bookHotel()">Book Hotel</button>
+                </tr>
+                <tr >
+                    <td>Tourist Hotel</td>
+                    <td>1000</td>
+                    <td>Kachiguda</td>
+                    <td>4.0</td>
+                    <td> <img src="assets/images/TouristHotel.jpg" alt="Bus" height="300" width="300" ></td>
+                    <button type="button" class="booking-button" (click)="bookHotel()">Book Hotel</button>
+                </tr>
+                <tr >
+                    <td>ITC Kohinur</td>
+                    <td>20,900</td>
+                    <td>Hyderabad</td>
+                    <td>4.0</td>
+                    <td> <img src="assets/images/ITCKohinur.jpg" alt="Kohinur" height="300" width="300" ></td>
+                    <button type="button" class="booking-button" (click)="bookHotel()">Book Hotel</button>
+                </tr>
+                <tr >
+                    <td>Trident</td>
+                    <td>19,575</td>
+                    <td>Hi-Tech City</td>
+                    <td>4.3</td>
+                   <td> <img src="assets/images/Trident.jpg" alt="trident" height="300" width="300" ></td>
+                   
+                   <button type="button" class="booking-button" (click)="bookHotel()">Book Hotel</button>
+                
+                   </tr>
+                   </table>
+
+                   <tr *ngFor="let Hotelslist of Hotels | paginate: { itemsPerPage: count, currentPage: p }">
+
+                    <td>{{Hotelslist.hotelName}}</td>
+                    <td>{{Hotelslist.hotelPrice}}</td>
+                    <td>{{Hotelslist.location}}</td>
+                    <td>{{Hotelslist.rating}}</td>
+                   <!-- Assuming Hotelslist.images contains the URL of the image 
+                  <td>
+                      <img [src]="Hotelslist.images" alt="Hotel Image" style="max-width: 200px; max-height: 500px;">
+                  </td>
+                  <button type="button" class="booking-button" (click)="bookHotel()">Book Now</button>
+              </tr>
+            </table>
+            </div>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            
+
+        </div>
+    </div>
+</div>-->
+<div class="main-content" style="
+background-image: url('assets/images/well.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+padding: 50px">
+<div class="section-content section-content-p30">
+  <div class="container-fluid">
+    <div class="col-md-9">
+      <div class="content">
+        <div class="row">
+          <div class="text-center" *ngFor="let temphotel of hotel | paginate: { itemsPerPage: count, currentPage: p }">
+            <div class="hotel-container">
+              <img [src]="temphotel.images" alt="{{ temphotel.hotelName }}" class="hotel-image">
+              <div class="hotel-info">
+                <p><strong>Hotel Name:</strong> <span class="hotel-hotelName">{{ temphotel.hotelName }}</span></p>
+                <p><strong>Room Price:</strong> <span class="hotel-hotelPrice">₹{{ temphotel.hotelPrice }}</span></p>
+                <p><strong>Facilities:</strong> <span class="hotel-facilities">{{ temphotel.facilities }}</span></p>
+                <p><strong>Location:</strong> <span class="hotel-location">{{ temphotel.location }}</span></p>
+                <p><strong>About:</strong> <span class="hotel-about">{{ temphotel.about }}</span></p>
+                <p><strong>Rating:</strong> <span class="hotel-rating">{{ temphotel.rating }}</span></p>
+            </div>
+            
+            
+
+             <br> <button type="button" class="btn btn-info" (click)="BookHotel(temphotel.hotelId)">Book Hotel</button>
+            </div>
+          </div>
+        </div>
+        <br><div class="text-right">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+      </div>
+      <button class="btn btn-info" type="button" (click)="back()">Back..</button>
+    </div>
+  </div>
+</div>
+</div>

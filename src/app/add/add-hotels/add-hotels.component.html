@@ -1,0 +1,99 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <!-- <h1>Add Hotels</h1> -->
+           <div class="row" style="background-color: lightyellow">
+            
+                
+                <div class="row">
+                <form #spForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div *ngIf="hotels.hotelId==0"><h1>Add Hotels</h1></div>
+                    <div *ngIf="hotels.hotelId>0"><h1>Update Hotels</h1></div>
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Hotel ID</label>
+                        <div class ="col-sm-10">
+                            <input type ="number" name="hotelId" [(ngModel)]="hotels.hotelId" />
+  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Hotels Name</label>
+                        <div class ="col-sm-10">
+                            <input type ="text" name="hotelName" [(ngModel)]="hotels.hotelName"  />
+  
+                        </div>
+                    </div>
+  
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Facilities</label>
+                        <div class ="col-sm-10">
+                            <input type ="text" name="facilities" [(ngModel)]="hotels.facilities"/>
+  
+                        </div>
+                    </div>
+  
+  
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Hotel Price</label>
+                        <div class ="col-sm-10">
+                            <input type ="number" name="hotelPrice" [(ngModel)]="hotels.hotelPrice" />
+  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">no Of Rooms</label>
+                        <div class ="col-sm-10">
+                            <input type ="number" name="noOfRooms" [(ngModel)]="hotels.noOfRooms" />
+  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Location</label>
+                        <div class ="col-sm-10">
+                            <input type ="text" name="location" [(ngModel)]="hotels.location" />
+  
+                        </div>
+                    </div>
+    
+                             <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">About</label>
+                        <div class ="col-sm-10">
+                            <input type ="text" name="about"  [(ngModel)]="hotels.about"/>
+  
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class ="col-sm-2 col-form-label">Rating</label>
+                        <div class ="col-sm-10">
+                            <input type ="number" name="rating" [(ngModel)]="hotels.rating"  />
+  
+                        </div>
+                        <div class="form-group row">
+                            <label class ="col-sm-2 col-form-label">Images</label>
+                            <div class ="col-sm-10">
+                                <input type ="string" name="images" [(ngModel)]="hotels.images"  />
+      
+                            </div>
+                        </div>
+                      <!---- <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Images</label>
+                            <div class="col-sm-10">
+                                <!-- Replace type="image" with type="file" --
+                                <input type="file" name="images" (change)="onFileSelected($event)"  class="larger-file-input" />
+                                <!-- If you want to bind it to the 'hotels.images' property, you can use [(ngModel)] --
+                                <!-- <input type="file" name="images" [(ngModel)]="hotels.images" (change)="onFileSelected($event)" /> --
+                            </div>
+                        </div>-->
+                        
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-2"><button type ="submit"class="btn btn-info">Submit</button></div>
+                        <div class="col-sm-2"><button type="reset" class="btn btn-info">Reset</button></div>
+                      </div>
+                    </form>
+  
+            </div>
+            </div>
+            </div>
+            </div>

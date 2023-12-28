@@ -1,0 +1,63 @@
+<mat-toolbar color="white" class="mat-elevation-z8" style="margin-bottom: 10px;">
+    <div class="logo">
+      
+          <img src="assets/images/logo.jpg" alt="Restaurant Logo" class="img-responsive">
+     
+  </div>
+  
+   
+     <div class="spacer"></div>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/home">Home</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/myprofile">My Profile</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/viewhotel">Hotels</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/viewbooking">My Bookings</a>
+    
+    <a mat-raised-button color="primary" (click)="logout()">Logout</a>
+   </mat-toolbar>
+
+<div class="main-content" style="
+background-image: url('assets/images/bg.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+height: 50vh;
+overflow: hidden;">
+
+    <div class="text-center my-4">
+        <div class="container-center">
+            <h2 class="text-center my-4">My Bookings</h2>
+
+            <div class="row">
+                <table class="table table-striped table-bordered">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center">Booking ID</th>
+                            <th class="text-center">User Name</th>
+                            <th class="text-center">Booking Date</th>
+                            <th class="text-center">Booking Time</th>
+                            <th class="text-center">Hotel Name</th>
+                            <th class="text-center">Number of Rooms</th>
+                            <th class="text-center">Total Price</th>
+                            <th class="text-center">Booking Status</th>
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let tempbooking of bookings | paginate: { itemsPerPage: count, currentPage: p }">
+                        <td class="text-center">{{ tempbooking.bookingId }}</td>
+                        <td class="text-center">{{ tempbooking.user.username }}</td>
+                        <td class="text-center">{{ tempbooking.bookingDate }}</td>
+                        <td class="text-center">{{ tempbooking.bookingTime }}</td>
+                        <td class="text-center">{{ tempbooking.hotel.hotelName }}</td>
+                        <td class="text-center">{{ tempbooking.noOfRooms }}</td>
+                        <td class="text-center">{{ tempbooking.totalPrice }}</td>
+                        <td class="text-center">{{ tempbooking.status }}</td>
+                        
+                    </tr>
+                </table>
+                <div class="text-right mt-3">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

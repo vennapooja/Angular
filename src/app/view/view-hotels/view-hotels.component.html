@@ -1,0 +1,58 @@
+
+<div class="main-content" style="background-color: blanchedalmond;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            
+            <div class="row">
+              <table class='table'>
+                <thead>
+                    <tr class='table-dark'>
+                        <th>HotelName</th>
+                        <th>HotelPrice</th>
+                        <th>Location</th>
+                        <th>Rating</th>
+                        <th>Images</th>
+                        <th>Action</th>
+                        
+
+                    </tr>
+            
+                </thead><br>
+               <!---- <tr >
+                    <td>Sitara</td>
+                    <td>2000</td>
+                    <td>Kukatpally</td>
+                    <td>4.2</td>
+                   
+
+                </tr>
+                -->
+                <tr *ngFor="let Hotelslist of Hotels | paginate: { itemsPerPage: count, currentPage: p }">
+
+                    <td>{{Hotelslist.hotelName}}</td>
+                    <td>{{Hotelslist.hotelPrice}}</td>
+                    <td>{{Hotelslist.location}}</td>
+                    <td>{{Hotelslist.rating}}</td>
+                    <td>{{Hotelslist.images}}</td>
+            
+
+                    <button type="button" class="btn btn-md btn-success" (click)="updateHotels(Hotelslist.hotelId)">Update</button>&nbsp;&nbsp;
+                   
+                    <button type="button" class="btn btn-md btn-danger" (click) = "deleteHotels(Hotelslist.hotelId)">Delete</button>
+                </tr>
+            </table>
+            </div>
+            <div class="text-right">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+            <button class="atu-btn-submit btn btn-info"(click)="addHotels()">Add Hotels</button><br>
+
+
+            <br>
+            <button class="btn btn-info" type="button" (click)="logout()">Logout</button>
+
+                
+        
+        </div>
+    </div>
+</div>

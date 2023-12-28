@@ -1,0 +1,47 @@
+<section id="banner">
+
+  <mat-toolbar color="white" class="mat-elevation-z8" style="margin-bottom: 10px;">
+    <div class="logo">
+      
+          <img src="assets/images/logo.jpg" alt="Smartcity Logo" class="img-responsive">
+     
+  </div>
+  
+   
+     
+    <a mat-raised-button color="primary" routerLink="login" style="margin-left: 20px;padding: auto;">Admin Login</a>
+    <div class="spacer"></div>
+    <a mat-raised-button color="primary" routerLink="/user/login">User Login</a>
+   </mat-toolbar>
+    
+    <div id="banner-text"  style="
+    background-image: url('assets/images/wel.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 140px">
+      <h1 style="margin-left: 50px;">SmartCityGuide</h1>
+      <p style="margin-top: 30px;">Just the way you wanted</p>
+      <div class="b_button">
+        <a [routerLink]="['/user/login']"><span></span>Explore</a>
+        <div class="b_button">
+          <a [routerLink]="['/user/login']">
+            <button>Try it out</button>
+          </a>
+        </div>
+      </div>
+    </div>
+ </section> 
+ <footer>
+    <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Help</a></li>
+    </ul>
+  </footer>
+ 
+ 
+
+    
+ 
+ 

@@ -1,0 +1,60 @@
+<mat-toolbar color="white" class="mat-elevation-z8" style="margin-bottom: 10px;">
+    <div class="logo">
+      
+          <img src="assets/images/logo.jpg" alt="Restaurant Logo" class="img-responsive">
+     
+  </div>
+  
+   
+     <div class="spacer"></div>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/home">Home</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/myprofile">My Profile</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/viewhotel">Hotels</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/viewbooking">My Bookings</a>
+    <a mat-button style="margin-right: 10px;" routerLink="/user/viewpayments">My Payments</a>
+    <a mat-raised-button color="primary" (click)="logout()">Logout</a>
+</mat-toolbar>
+<div class="main-conatiner" style="
+background-image: url('assets/images/well.jpg');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+height: 90vh;
+overflow: hidden;">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <h2 class="text-center my-4">My Payments</h2>
+            
+            <div class="row">
+                <table class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th class="text-center">Payment Id</th>
+                            <th class="text-center">Booking Id</th>
+                            <th class="text-center">User Name</th>                           
+                            <th class="text-center">Total Amount</th>
+                            <th class="text-center">Paid Amount</th>
+
+                            
+                            
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let payments of payments | paginate: { itemsPerPage: count, currentPage: p }">
+                        <td class="text-center">{{ payments.paymentId }}</td>
+                        <td class="text-center">{{ payments.bookingId }}</td>
+                        <td class="text-center">{{ payments.user.username }}</td>                      
+                        <td class="text-center">{{ payments.totalPrice }}</td>
+                        <td class="text-center">{{ payments.paidAmount }}</td>
+                    
+
+                    </tr>
+                  
+                </table>
+                <div class="text-right mt-3">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
